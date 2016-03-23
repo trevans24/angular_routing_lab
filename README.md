@@ -137,7 +137,7 @@ app.controller('WinesShowCtrl', function ($scope, WineService, $routeParams) {
 });
 ```
 
-Can you get it working now that you know how to grab the corret `id`? How would you display only that individual wine?
+Can you get it working now that you know how to grab the correct `id`? How would you display only that individual wine?
 
 ### Stretch: Prettify
 Go crazy. Use Bootstrap to make a fancy index and show page, listing out all the wine info, and showing an image for each of them.
