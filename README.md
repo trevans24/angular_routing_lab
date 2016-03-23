@@ -20,10 +20,10 @@ Our data (a list of wines) lives at the bottom of `app.js`. Eventually we will u
 <a href="#wine-show-challenge">Wine Show Challenge</a>
 
 ### Setup
-* Clone this repo.
+* Clone this repo. Consider doing a `git checkout -b in-progress` or something similar to work there.
 * **Make sure to `bower install`.**
 * Note: We will need to run a local server once we start playing with routing.
-    - In the application directory run `python -m SimpleHTTPServer`.
+    - In the application directory run `python -m SimpleHTTPServer`. (You can do `http-server` or `budo app.js --open` instead, if you have them installed.)
     - Then open your browser to "localhost:8000" (or similar).
 
 ## ng-route
