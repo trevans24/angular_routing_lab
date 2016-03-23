@@ -4,7 +4,7 @@ var app = angular.module('wineApp', []);
 // ROUTES //
 ////////////
 
-app.config(function($routeProvider, $locationProvider){
+app.config(function($routeProvider){
 
   $routeProvider
     .when('/', {
