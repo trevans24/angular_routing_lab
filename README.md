@@ -13,20 +13,14 @@ When a user goes to `/wines/:id` they should see a single wine (`wines#show`).
 
 Our data (a list of wines) lives at the bottom of `app.js`. Eventually we will use AJAX to retrieve this so we can perform all CRUD operations, but for now it's hardcoded.
 
-### Hash Parameters
-<a href="#setup">Setup</a><br/>
-<a href="#ng-route">ng-route</a><br/>
-<a href="#wine-list-challenge">Wine List Challenge</a><br/>
-<a href="#wine-show-challenge">Wine Show Challenge</a>
-
-### Setup
+### Step 1. Setup
 * Clone this repo. Consider doing a `git checkout -b in-progress` or something similar to work there.
 * **Make sure to `bower install`.**
 * Note: We will need to run a local server once we start playing with routing.
     - In the application directory run `python -m SimpleHTTPServer`. (You can do `http-server` or `budo app.js --open` instead, if you have them installed.)
     - Then open your browser to "localhost:8000" (or similar).
 
-## ng-route
+## Step 2. ng-route
 A Single Page App needs a way of responding to user navigation. In order to perform "frontend routing", we need a way to capture URL changes and respond to them. For example, if the user clicks on a link to "/wines/1414", we need our Angular application to know how to respond (what templates, controllers, and resources to use). What we *don't* want to happen is for the request to reach the server.
 
 1. Include `angular-route`:
@@ -85,7 +79,7 @@ A Single Page App needs a way of responding to user navigation. In order to perf
         - `{{hello}}`
     * When you refresh you should see: "wine index controller is working!"
 
-### Wine List Challenge
+### Step 3. Wine List Challenge
 Can you display a list of all the wines on the wines index page? (Start by using the mock data object called `ALL_WINES` at the bottom of `app.js`).
 
 What directive would you use to loop through a list of wines?
@@ -94,7 +88,7 @@ Can you get it working using the `WineService`, without using `ALL_WINES` direct
 - How would you inject the `WineService` into `WineIndexCtrl`?
 - How would you query *all* of the wines?
 
-### HTML5 Mode
+### Step 4. HTML5 Mode
 Add, or uncomment, the following in your route configuration so that we don't have to use the query hash for navigation:
 ``` javascript
     $locationProvider.html5Mode({
@@ -105,7 +99,7 @@ Add, or uncomment, the following in your route configuration so that we don't ha
 
 Now instead of linking to `#/wines/1424` we can link to "/wines/1424".
 
-### Wine Show Challenge
+### Step 5. Wine Show Challenge
 To setup a `wines#show` route, we need to first figure out how to capture the id parameter in the URL.
 
 For each of your wines on the `wines#index` page, let's add a link:
