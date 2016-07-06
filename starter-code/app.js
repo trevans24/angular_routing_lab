@@ -1,22 +1,11 @@
 var app = angular.module('wineApp', []);
 
+console.log('Angular is working.');
+
 ////////////
 // ROUTES //
 ////////////
 
-app.config(function($routeProvider){
-
-  $routeProvider
-    .when('/', {
-      template: 'Home!'
-    })
-
-  // $locationProvider.html5Mode({
-  //   enabled: true,
-  //   requireBase: false
-  // });
-
-})
 
 /////////////////
 // CONTROLLERS //

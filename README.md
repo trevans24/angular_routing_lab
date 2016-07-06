@@ -19,13 +19,15 @@ Our data (a list of wines) lives at the bottom of `app.js`. Eventually we will u
 * Note: We will need to run a local server once we start playing with routing.
     - In the application directory run `python -m SimpleHTTPServer`. (You can do `http-server` or `budo app.js --open` instead, if you have them installed.)
     - Then open your browser to "localhost:8000" (or similar).
+    - Developer console should display: `Angular is working.`
 
 ## Step 2. ng-route
 A Single Page App needs a way of responding to user navigation. In order to perform "frontend routing", we need a way to capture URL changes and respond to them. For example, if the user clicks on a link to "/wines/1414", we need our Angular application to know how to respond (what templates, controllers, and resources to use). What we *don't* want to happen is for the request to reach the server.
 
 1. Include `angular-route`:
     * Run `bower install -s angular-route` in your terminal.
-    * Go to `index.html` and uncomment the angular-route script.
+      - You may get a prompt like, `? Answer`. If so, you are being asked which version of angular-route you want. You can Google this question and find additional information. I've found that typing `1` and hitting enter usually lets you proceed and you can confirm that `angular-route` has installed properly if the folder appears in your `bower_components` folder.
+    * Go to `index.html` and uncomment the angular-route script (index.html line 14).
     * Add an `ng-view` attribute to the `div` on `index.html`, line 23.
 2. Configure your routes:
     * In `app.js`, we need to add the `ngRoute` module:
@@ -71,8 +73,8 @@ A Single Page App needs a way of responding to user navigation. In order to perf
 
         ``` javascript
             app.controller('WinesIndexCtrl', function($scope){
-              console.log("Wine Index")
-              $scope.hello = "wine index controller is working!"
+              console.log("Wine Index");
+              $scope.hello = "wine index controller is working!";
             })
         ```
     * And update our template to include:
@@ -89,7 +91,7 @@ Can you get it working using the `WineService`, without using `ALL_WINES` direct
 - How would you query *all* of the wines?
 
 ### Step 4. HTML5 Mode
-Add, or uncomment, the following in your route configuration so that we don't have to use the query hash for navigation:
+Add the following in your route configuration so that we don't have to use the query hash for navigation:
 ``` javascript
     $locationProvider.html5Mode({
       enabled: true,
