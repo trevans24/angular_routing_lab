@@ -19,14 +19,15 @@ app.config(function($routeProvider){
 // CONTROLLERS //
 /////////////////
 
-app.controller('WinesIndexCtrl',function($scope){
+app.controller('WinesIndexCtrl',function($scope, WineService){
   console.log("Wine Index");
-  $scope.hello = "wine index controller is working!";
-  $scope.wines = ALL_WINES;
+  // $scope.hello = "wine index controller is working!";
+  // $scope.wines = ALL_WINES; // basic show wines solution
+  $scope.wines = WineService.query();
 });
 
 app.controller('WinesShowCtrl',function($scope){
-  console.log("Wine Show")
+  console.log("Wine Show");
 });
 
 ////////////
