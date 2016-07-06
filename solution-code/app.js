@@ -6,13 +6,17 @@ console.log('Angular is working.');
 // ROUTES //
 ////////////
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, $locationProvider){
   $routeProvider
     .when('/', {
       // template: 'Home!'
       templateUrl: '/templates/wines-index.html',
       controller: 'WinesIndexCtrl'
     })
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
 })
 
 /////////////////
