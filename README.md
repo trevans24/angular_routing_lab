@@ -155,3 +155,10 @@ Here are some of the wine fields we have to work with:
     "picture": "http://s3-us-west-2.amazonaws.com/sandboxapi/le_doyenne.jpg"
 }
 ```
+
+### Stretch 2:  AJAX
+Take a look at the $http lab from yesterday. Can you remove the WineService and replace with an $http call instead?
+
+The endpoint is here: `http://daretoexplore.herokuapp.com/wines/`
+
+The solution will be published on a separate branch at the end of this lab.
