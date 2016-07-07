@@ -28,30 +28,21 @@ app.config(function($routeProvider, $locationProvider){
 // CONTROLLERS //
 /////////////////
 
-app.controller('WinesIndexCtrl',function($scope, $http){  // removed WineService
-  console.log("Wine Index");
-  // $scope.hello = "wine index controller is working!";
-  // $scope.wines = ALL_WINES; // basic show wines solution
-  // $scope.wines = WineService.query();
-    $http.get('http://daretoexplore.herokuapp.com/wines')
-    .then(function(response, err) {
-        if(err){
-            console.log('error: ', err);
-        }
-    //success method:
-    $scope.wines = response.data;
+app.controller('WinesIndexCtrl',function($scope, WineService){ 
+  WineService.query()
+    .then(function(wines){
+        $scope.wines = wines; 
+        // console.log($scope.wines);
+    });
   });
-})
 
-app.controller('WinesShowCtrl', function($scope, $routeParams, $http){  // removed WineService
-    // console.log("Wine Show", $routeParams.id);
-    // $scope.wine = WineService.get($routeParams.id);
-    // console.log($scope.wine.name);
-    var idString = ($routeParams.id);
-    $http.get('http://daretoexplore.herokuapp.com/wines/' +  idString)
-  .then(function(response, err){
-      $scope.wine = response.data;
-  });
+app.controller('WinesShowCtrl', function($scope, $routeParams, WineService){ 
+    var wineId = $routeParams.id;
+    WineService.get(wineId)
+        .then(function(){
+            console.log(wineId);
+        });
+    // console.log(wineId);
 });
 
 
@@ -61,24 +52,33 @@ app.controller('WinesShowCtrl', function($scope, $routeParams, $http){  // remov
 // MODELS //
 ////////////
 
-app.factory('WineService', function(){
-
+app.factory('WineService', function($http){
   var WineService = {};
 
   WineService.query = function(){
-    return ALL_WINES;
-  }
+    return $http.get('http://daretoexplore.herokuapp.com/wines')
+        .then(function(response, err) {
+            if(err){
+                console.log('error: ', err);
+            }
+        //success method:
+        return response.data;
+      });
+    }
 
   WineService.get = function(id){
-    var id = parseInt(id);
-    return ALL_WINES.find(function(wine){
-      return wine.id == id;
-    });
-  }
+    $http.get('http://daretoexplore.herokuapp.com/wines/' +  id)
+        .then(function(response, err){
+            if(err){
+                console.log('error: ', err);
+            }
+            return response.data;
+        });
+    }
 
   return WineService;
 
-})
+});
 
 
 
