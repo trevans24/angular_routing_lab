@@ -116,11 +116,11 @@ First, update the route:
 ``` javascript
 $routeProvider
   .when('/', {
-    templateUrl: 'templates/index.html',
+    templateUrl: 'templates/wines-index.html',
     controller: 'WinesIndexCtrl'
   })
   .when('/wines/:id', { // the "id" parameter 
-    templateUrl: 'templates/show.html',
+    templateUrl: 'templates/wines-show.html',
     controller: 'WinesShowCtrl'
   })
 ```
