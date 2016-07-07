@@ -2,6 +2,6 @@
 {{ hello }} -->
 <div class="row" ng-if="wines.length >= 0">
     <div ng-repeat="wine in wines">
-        {{wine.name}}
+        <h5><a ng-href="/wines/{{wine.id}}">{{wine.name}}</a></h5>
     </div>
 </div>

@@ -13,6 +13,11 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: '/templates/wines-index.html',
       controller: 'WinesIndexCtrl'
     })
+    .when('/wines/:id', {
+        templateUrl: '/templates/wines-show.html',
+        controller: 'WinesShowCtrl'
+    });
+
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
@@ -30,8 +35,10 @@ app.controller('WinesIndexCtrl',function($scope, WineService){
   $scope.wines = WineService.query();
 });
 
-app.controller('WinesShowCtrl',function($scope){
-  console.log("Wine Show");
+app.controller('WinesShowCtrl', function($scope, WineService, $routeParams){
+    // console.log("Wine Show", $routeParams.id);
+    $scope.wine = WineService.get($routeParams.id);
+    // console.log($scope.wine.name);
 });
 
 ////////////
