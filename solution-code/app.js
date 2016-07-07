@@ -37,14 +37,16 @@ app.controller('WinesIndexCtrl',function($scope, WineService){
   });
 
 app.controller('WinesShowCtrl', function($scope, $routeParams, WineService){ 
-    var wineId = $routeParams.id;
-    WineService.get(wineId)
-        .then(function(){
-            console.log(wineId);
+    // console.log(WineService);
+    WineService.findOne($routeParams.id)
+        .then(function(res, err){
+            if(err){
+                console.log('error ', err)
+            }
+            $scope.wine = res;
         });
     // console.log(wineId);
 });
-
 
 
 
@@ -66,8 +68,8 @@ app.factory('WineService', function($http){
       });
     }
 
-  WineService.get = function(id){
-    $http.get('http://daretoexplore.herokuapp.com/wines/' +  id)
+  WineService.findOne = function(id){
+     return $http.get('http://daretoexplore.herokuapp.com/wines/' +  id)
         .then(function(response, err){
             if(err){
                 console.log('error: ', err);
