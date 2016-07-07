@@ -1,7 +1,10 @@
-<!-- Welcome to Wine Index (templates/wines-index.html)
-{{ hello }} -->
-<div class="row" ng-if="wines.length >= 0">
-    <div ng-repeat="wine in wines">
-        <h5><a ng-href="/wines/{{wine.id}}">{{wine.name}}</a></h5>
+<!-- Welcome to Wine Index (templates/wines-index.html) {{ hello }} -->
+<div ng-repeat="wine in wines">
+  <div class="row">
+    <div class="col-xs-4">
+      <img ng-src="{{wine.picture}}" class="img-responsive img-limits">
     </div>
+  <div class="col-xs-8">
+    <h5><a ng-href="/wines/{{wine.id}}">{{wine.name}}</a></h5>
+  </div>
 </div>
