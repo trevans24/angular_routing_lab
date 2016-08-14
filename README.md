@@ -2,9 +2,9 @@
 
 | Objectives |
 | :--- |
-| Explore Routing in Single Page Apps |
-| Create route-specific view templates and controllers. |
-| Create RESTful Index and Show routes for a Wine resource. |
+| **Explore** Routing in Single Page Apps |
+| **Create** route-specific view templates and controllers. |
+| **Create** RESTful Index and Show routes for a (Wine) resource. |
  
 In this lab we will be working with templates and routing in angular.
 
@@ -19,7 +19,7 @@ Our data (a list of wines) lives at the bottom of `app.js`. Eventually we will u
 * Note: We will need to run a local server once we start playing with routing.
     - In the application directory run `python -m SimpleHTTPServer`. (You can do `http-server` or `budo app.js --open` instead, if you have them installed.)
     - Then open your browser to "localhost:8000" (or similar).
-    - Developer console should display: `Angular is working.`
+    - The Developer console should display: `Angular is working.`
 
 ## Step 2. ng-route
 A Single Page App needs a way of responding to user navigation. In order to perform "frontend routing", we need a way to capture URL changes and respond to them. For example, if the user clicks on a link to "/wines/1414", we need our Angular application to know how to respond (what templates, controllers, and resources to use). What we *don't* want to happen is for the request to reach the server.
