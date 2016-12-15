@@ -1,4 +1,6 @@
-var app = angular.module('wineApp', []);
+var app = angular.module('wineApp', [])
+    .controller('WinesIndexController',WinesIndexController)
+    .controller('WinesShowController',WinesShowController);
 
 console.log('Angular is working.');
 
@@ -11,36 +13,38 @@ console.log('Angular is working.');
 // CONTROLLERS //
 /////////////////
 
-app.controller('WinesIndexCtrl',function($scope){
-  console.log("Wine Index")
-})
+WinesIndexController.$inject = ['$scope'];
+function WinesIndexController($scope){
+  console.log("Wine Index");
+}
 
-app.controller('WinesShowCtrl',function($scope){
-  console.log("Wine Show")
-})
+WinesShowController.$inject = ['$scope'];
+function WinesShowController($scope){
+  console.log("Wine Show");
+}
 
 ////////////
 // MODELS //
 ////////////
 
-app.factory('WineService', function(){
+app.factory('WineFactory', function(){
 
-  var WineService = {};
+  var WineFactory = {};
 
-  WineService.query = function(){
+  WineFactory.query = function(){
     return ALL_WINES;
-  }
+  };
 
-  WineService.get = function(id){
-    var id = parseInt(id);
+  WineFactory.get = function(id){
+    id = parseInt(id);
     return ALL_WINES.find(function(wine){
       return wine.id == id;
     });
-  }
+  };
 
-  return WineService;
+  return WineFactory;
 
-})
+});
 
 
 
