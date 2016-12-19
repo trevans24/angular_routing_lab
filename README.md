@@ -50,13 +50,13 @@ A Single Page App needs a way of responding to user navigation. In order to perf
 
 ### ng-view
 
-The `ng-view` directive is the hard of all our front-end routing.  Applications can only have one ng-view directive, and this will be the placeholder for all views provided by the route.  In other words, wherever our ng-view directive is, this is will be replaced by whatever we choose to render from our routes (usually an HTML template).
+The `ng-view` directive is the heart of all our front-end routing.  Applications can only have one ng-view directive, and this will be the placeholder for all views provided by the route.  In other words, wherever our ng-view directive is, this is will be replaced by whatever we choose to render from our routes (usually an HTML template).
 
 2. Configure your routes:
-    * In `app.js`, we need to add the `ngRoute` module:
+    * In `app.js`, we need to modify line 1 to add the `ngRoute` module:
 
         ``` javascript
-            var app = angular.module('wineApp', ['ngRoute']);
+            var app = angular.module('wineApp', ['ngRoute'])
         ```
 
     * Next, we need to add our first route:
@@ -66,8 +66,8 @@ The `ng-view` directive is the hard of all our front-end routing.  Applications 
               $routeProvider
                 .when('/', {
                   template: 'Home!'
-                })
-            })
+                });
+            });
         ```
 3. Fire up your server:
     * From your application directory, run `python -m SimpleHTTPServer`.
