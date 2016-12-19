@@ -70,7 +70,7 @@ The `ng-view` directive is the heart of all our front-end routing.  Applications
             });
         ```
 3. Fire up your server:
-    * From your application directory, run `python -m SimpleHTTPServer`.
+    * Make sure you are still running `python -m SimpleHTTPServer`.
     * Then open your browser to "localhost:8000" (or similar).
     * You should see "Home!"
 
