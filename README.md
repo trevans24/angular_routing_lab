@@ -45,7 +45,7 @@ Our data (a list of wines) lives at the bottom of `app.js`. Eventually we will u
 A Single Page App needs a way of responding to user navigation. In order to perform "frontend routing", we need a way to capture URL changes and respond to them. For example, if the user clicks on a link to "/wines/1414", we need our Angular application to know how to respond (what templates, controllers, and resources to use). What we *don't* want to happen is for the request to reach the server.
 
 1. Include `angular-route`:
-    * Run `bower install -s angular-route` in your terminal.
+    * Run `bower install --save angular-route` in your terminal.
       - You may get a prompt like, `? Answer`. If so, you are being asked which version of angular-route you want. I've found that typing `1` and hitting enter usually lets you proceed and you can confirm that `angular-route` has installed properly if the folder appears in your `bower_components` folder.
     * Go to `index.html` and uncomment the angular-route script (index.html line 14).
     * Add an `ng-view` attribute to the `div` on `index.html`, line 23.
