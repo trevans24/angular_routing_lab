@@ -88,8 +88,8 @@ The `ng-view` directive is the heart of all our front-end routing.  Applications
                   // template: 'Home!',
                   templateUrl: '/templates/wines-index.html',
                   controller: 'WinesIndexController'
-                })
-            })
+                });
+            });
         ```
 
     * Now let's add a single value to `WinesIndexController` (in `app.js`):
@@ -98,7 +98,7 @@ The `ng-view` directive is the heart of all our front-end routing.  Applications
             function WinesIndexController($scope){
               console.log("Wine Index");
               $scope.hello = "wine index controller is working!";
-            })
+            });
         ```
     * And update our template to include:
         - `{{hello}}`
