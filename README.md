@@ -117,7 +117,7 @@ Can you display a list of all the wine names and prices on the wines index page?
 What directive would you use to loop through a list of wines?
 
 Can you get it working using the `WineFactory`, without using `ALL_WINES` directly?
-- How would you inject the `WineService` into `WinesIndexController`?
+- How would you inject the `WineFactory` into `WinesIndexController`?
 - How would you query *all* of the wines?
 
 <!--2:30 15 minutes -->
