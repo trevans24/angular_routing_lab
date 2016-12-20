@@ -2,6 +2,8 @@
 
 <!--Hook: So in the last unit we talked a lot about routing between the back end and the front end.  Basically, we would define a path and a method to match on either side.  This was such a revolutionary idea when it came out.  A little while later, web developers started looking around and thinking...wait, if we don't need a database or a back-end...can we just do that on the front end now?  No more waiting for HTTP responses, just immediately switch to a new view, with new HTML, CSS, and JS code.  That would be cool.  Yes, it would be cool.  And that's what we'll learn today. -->
 
+<!--Also worth noting, we have shown ng-controller and ng-model, but the only one of the trio we haven't yet shown is ng-view --we'll show that today! -->
+
 ## Angular Routing Lab
 
 | Objectives |
@@ -172,6 +174,10 @@ Add the following in your route configuration so that we don't have to use the q
 ```
 
 Now instead of linking to `#/wines/1424` in our `wines-index.html` template, we can link to "/wines/1424".
+
+<!--Team independence can use this time to look at Sensus code with ui-router -->
+
+<!--3:00 till end of day -->
 
 ### Independent Work: Prettify
 Go crazy. Use Bootstrap to make a fancy index and show page, listing out all the wine info, and showing an image for each of them.
