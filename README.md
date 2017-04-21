@@ -46,7 +46,7 @@ A Single Page App needs a way of responding to user navigation. In order to perf
 
 1. Include `angular-route`:
     * Run `bower install --save angular-route` in your terminal.
-      - You may get a prompt like, `? Answer`. If so, you are being asked which version of angular-route you want. I've found that typing `1` and hitting enter usually lets you proceed and you can confirm that `angular-route` has installed properly if the folder appears in your `bower_components` folder.
+      - You may get a prompt like, `? Answer`. If so, you are being asked which version of angular-route you want. I've found that typing `1` and hitting enter (might have to do it twice) usually lets you proceed and you can confirm that `angular-route` has installed properly if the folder appears in your `bower_components` folder.
     * Go to `index.html` and uncomment the angular-route script (index.html line 14).
     * Add an `ng-view` attribute to the `div` on `index.html`, line 23.
 
