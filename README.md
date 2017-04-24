@@ -110,17 +110,17 @@ The `ng-view` directive is the heart of all our front-end routing.  Applications
 
 ### Step 3. Wine List Challenge
 
-#### Factories
-
-**Factories** are a type of **Provider** in Angular.  They are a great way to _DRY out our code_ and _separate concerns_.  Specifically, if we notice we are using the same method in two different controllers, it's probably a good idea to break that out into its own factory so we don't repeat ourselves.  Also, if we are communicating with a Database or a 3rd Party API, it is a good idea to isolate that code from the display of the data on our front end so we can troubleshoot and improve our program more easily.
-
 Can you display a list of all the wine names and prices on the wines index page? (Start by using the mock data object called `ALL_WINES` at the bottom of `app.js`).
 
 What directive would you use to loop through a list of wines?
 
-Can you get it working using the `WineFactory`, without using `ALL_WINES` directly?
+Now, can you get it working using the `WineFactory`, without using `ALL_WINES` directly?
 - How would you inject the `WineFactory` into `WinesIndexController`?
 - How would you query *all* of the wines?
+
+#### Factories
+
+**Factories** are a type of **Provider** in Angular.  They are a great way to _DRY out our code_ and _separate concerns_.  Specifically, if we notice we are using the same method in two different controllers, it's probably a good idea to break that out into its own factory so we don't repeat ourselves.  Also, if we are communicating with a Database or a 3rd Party API, it is a good idea to isolate that code from the display of the data on our front end so we can troubleshoot and improve our program more easily.
 
 <!--2:30 15 minutes -->
 
