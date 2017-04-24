@@ -129,7 +129,7 @@ To setup a `wines#show` route, we need to first figure out how to capture the id
 
 For each of your wines on the `wines#index` page, let's add a link:
 ``` html
-    <h5><a href="#/wines/{{wine.id}}">{{wine.name}}</a></h5>
+    <h5><a href="#!/wines/{{wine.id}}">{{wine.name}}</a></h5>
 ```
 
 When a user navigates to `/wines/:id` we want to display the wine with the matching id!
