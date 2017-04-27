@@ -1,6 +1,7 @@
-var app = angular.module('wineApp', [])
+var app = angular.module('wineApp', ['ngRoute'])
     .controller('WinesIndexController',WinesIndexController)
-    .controller('WinesShowController',WinesShowController);
+    .controller('WinesShowController',WinesShowController)
+    .factory('WineFactory', WineFactory);
 
 console.log('Angular is working.');
 
@@ -8,26 +9,56 @@ console.log('Angular is working.');
 // ROUTES //
 ////////////
 
+//configuring the route
+app.config(($routeProvider, $locationProvider) => {
+    $routeProvider
+    //homepage or '/' to load the wine-index template
+    .when('/', {
+        templateUrl: '/templates/wines-index.html',
+        //set up the controller
+        controller: 'WinesIndexController'
+    })
+    // each individual wine page
+    .when('/wines/:id', {
+        templateUrl: '/templates/wines-show.html',
+        controller: 'WinesShowController'
+    });
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+});
 
 /////////////////
 // CONTROLLERS //
 /////////////////
 
-WinesIndexController.$inject = ['$scope'];
-function WinesIndexController($scope){
+WinesIndexController.$inject = ['$scope', 'WineFactory'];
+function WinesIndexController($scope, WineFactory){
   console.log("Wine Index");
+  // the hello here in quotes is showed when called in html...
+  $scope.hello = 'Wine index controller is working';
+  // wines is in the html to display the wine list based off the
+  // winefactory function below
+  $scope.wines = WineFactory.query();
 }
 
-WinesShowController.$inject = ['$scope'];
-function WinesShowController($scope){
+WinesShowController.$inject = ['$scope', 'WineFactory', '$routeParams'];
+function WinesShowController($scope, WineFactory, $routeParams){
   console.log("Wine Show");
+  console.log($routeParams.id);
+  let id = $routeParams.id;
+  $scope.hello = "Showing wine controller";
+  $scope.specWines = WineFactory.get(id);
 }
 
 ////////////
 // MODELS //
 ////////////
 
-app.factory('WineFactory', function(){
+// display wines function
+
+function WineFactory(){
 
   var WineFactory = {};
 
@@ -44,15 +75,7 @@ app.factory('WineFactory', function(){
 
   return WineFactory;
 
-});
-
-
-
-
-
-
-
-
+}
 
 
 

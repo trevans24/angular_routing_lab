@@ -1,1 +1,33 @@
 Welcome to Wine Index (templates/wines-index.html)
+<br>
+
+<!-- calling the hello from the $scope.hello in the wine index controller -->
+{{ hello }}
+<br>
+<div class="col-md-8 col-xl-10">
+	<table class="table table-responsive table-hover">
+		<thead>
+			<tr class="danger">
+				<th>Name</th>
+				<th>Year</th>
+				<th>Grapes</th>
+				<th>Country</th>
+				<th>Region</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- table repeating the info of each wine into each row -->
+			<tr ng-repeat="wine in wines">
+				<td>
+					<a href="/wines/{{wine.id}}">{{wine.name}}</a>
+				</td>
+				<td>{{wine.year}}</td>
+				<td>{{wine.grapes}}</td>
+				<td class="warning">{{wine.country | uppercase }}</td>
+				<td>{{wine.region}}</td>
+				<td class="info">{{wine.price | currency }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
