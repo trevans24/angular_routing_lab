@@ -33,23 +33,27 @@ app.config(($routeProvider, $locationProvider) => {
 // CONTROLLERS //
 /////////////////
 
-WinesIndexController.$inject = ['$scope', 'WineFactory'];
-function WinesIndexController($scope, WineFactory){
+WinesIndexController.$inject = ['$scope', 'WineFactory', '$http'];
+function WinesIndexController($scope, WineFactory, $http){
   console.log("Wine Index");
-  // the hello here in quotes is showed when called in html...
-  $scope.hello = 'Wine index controller is working';
-  // wines is in the html to display the wine list based off the
-  // winefactory function below
-  $scope.wines = WineFactory.query();
+    $http.get('http://daretoexplore.herokuapp.com/wines/')
+        .then((res) => {
+        console.log(res.data);
+        $scope.wines = res.data;
+      });
 }
 
-WinesShowController.$inject = ['$scope', 'WineFactory', '$routeParams'];
-function WinesShowController($scope, WineFactory, $routeParams){
-  console.log("Wine Show");
+WinesShowController.$inject = ['$scope', 'WineFactory', '$routeParams', '$http'];
+function WinesShowController($scope, WineFactory, $routeParams, $http){
+  // console.log("Wine Show");
   console.log($routeParams.id);
   let id = $routeParams.id;
-  $scope.hello = "Showing wine controller";
-  $scope.specWines = WineFactory.get(id);
+  // $scope.wine = WineFactory.get(id);
+  $http.get('http://daretoexplore.herokuapp.com/wines/' + id)
+    .then((res) => {
+        console.log(res.data);
+        $scope.wines = res.data;
+    });
 }
 
 ////////////

@@ -1,5 +1,12 @@
-Welcome to Wine Show (templates/wines-show.html)
-
-{{ hello }}
-
-{{ specWines.name }}
+<div class="text-center" ng-model="wines">
+  <br>
+  <h3>{{wines.name}}</h3>
+  <hr>
+  <img ng-src="{{wines.picture}}" class="img-responsive" style="margin:0 auto">
+  <hr>
+  <p><strong>Year:</strong> {{wines.year}}</p>
+  <p><strong>Grapes:</strong> {{wines.grapes}}</p>
+  <p><strong>Country:</strong> {{wines.country}}</p>
+  <p><strong>Region:</strong> {{wines.region}}</p>
+  <p><strong>Price:</strong> {{wines.price | currency }}</p>
+</div>
